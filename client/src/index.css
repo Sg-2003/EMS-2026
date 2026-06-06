@@ -1,6 +1,182 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Outfit:wght@100..900&display=swap");
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-indigo-50: var(--accent-50);
+  --color-indigo-100: var(--accent-100);
+  --color-indigo-200: var(--accent-200);
+  --color-indigo-300: var(--accent-300);
+  --color-indigo-400: var(--accent-400);
+  --color-indigo-500: var(--accent-500);
+  --color-indigo-600: var(--accent-600);
+  --color-indigo-700: var(--accent-700);
+  --color-indigo-800: var(--accent-800);
+  --color-indigo-900: var(--accent-900);
+  --color-indigo-950: var(--accent-950);
+
+  --color-slate-50: var(--slate-50);
+  --color-slate-100: var(--slate-100);
+  --color-slate-200: var(--slate-200);
+  --color-slate-300: var(--slate-300);
+  --color-slate-400: var(--slate-400);
+  --color-slate-500: var(--slate-500);
+  --color-slate-600: var(--slate-600);
+  --color-slate-700: var(--slate-700);
+  --color-slate-800: var(--slate-800);
+  --color-slate-900: var(--slate-900);
+  --color-slate-950: var(--slate-950);
+}
+
+:root {
+  /* Spacing density defaults */
+  --spacing: 0.25rem;
+
+  /* Theme slate defaults (light mode) */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --slate-950: #020617;
+  
+  /* Default Accent (indigo) */
+  --accent-50: #eef2ff;
+  --accent-100: #e0e7ff;
+  --accent-200: #c7d2fe;
+  --accent-300: #a5b4fc;
+  --accent-400: #818cf8;
+  --accent-500: #6366f1;
+  --accent-600: #4f46e5;
+  --accent-700: #4338ca;
+  --accent-800: #3730a3;
+  --accent-900: #312e81;
+  --accent-950: #1e1b4b;
+}
+
+/* Density Settings */
+:root[data-density="compact"] {
+  --spacing: 0.2rem;
+}
+:root[data-density="comfortable"] {
+  --spacing: 0.25rem;
+}
+:root[data-density="spacious"] {
+  --spacing: 0.32rem;
+}
+
+/* Accent: Indigo */
+:root[data-accent="indigo"] {
+  --accent-50: #eef2ff;
+  --accent-100: #e0e7ff;
+  --accent-200: #c7d2fe;
+  --accent-300: #a5b4fc;
+  --accent-400: #818cf8;
+  --accent-500: #6366f1;
+  --accent-600: #4f46e5;
+  --accent-700: #4338ca;
+  --accent-800: #3730a3;
+  --accent-900: #312e81;
+  --accent-950: #1e1b4b;
+}
+
+/* Accent: Violet */
+:root[data-accent="violet"] {
+  --accent-50: #f5f3ff;
+  --accent-100: #ede9fe;
+  --accent-200: #ddd6fe;
+  --accent-300: #c4b5fd;
+  --accent-400: #a78bfa;
+  --accent-500: #8b5cf6;
+  --accent-600: #7c3aed;
+  --accent-700: #6d28d9;
+  --accent-800: #5b21b6;
+  --accent-900: #4c1d95;
+  --accent-950: #2e1065;
+}
+
+/* Accent: Blue */
+:root[data-accent="blue"] {
+  --accent-50: #eff6ff;
+  --accent-100: #dbeafe;
+  --accent-200: #bfdbfe;
+  --accent-300: #93c5fd;
+  --accent-400: #60a5fa;
+  --accent-500: #3b82f6;
+  --accent-600: #2563eb;
+  --accent-700: #1d4ed8;
+  --accent-800: #1e40af;
+  --accent-900: #1e3a8a;
+  --accent-950: #172554;
+}
+
+/* Accent: Emerald */
+:root[data-accent="emerald"] {
+  --accent-50: #ecfdf5;
+  --accent-100: #d1fae5;
+  --accent-200: #a7f3d0;
+  --accent-300: #6ee7b7;
+  --accent-400: #34d399;
+  --accent-500: #10b981;
+  --accent-600: #059669;
+  --accent-700: #047857;
+  --accent-800: #065f46;
+  --accent-900: #064e3b;
+  --accent-950: #022c22;
+}
+
+/* Accent: Rose */
+:root[data-accent="rose"] {
+  --accent-50: #fff1f2;
+  --accent-100: #ffe4e6;
+  --accent-200: #fecdd3;
+  --accent-300: #fda4af;
+  --accent-400: #fb7185;
+  --accent-500: #f43f5e;
+  --accent-600: #e11d48;
+  --accent-700: #be123c;
+  --accent-800: #9f1239;
+  --accent-900: #881337;
+  --accent-950: #4c0519;
+}
+
+/* Accent: Amber */
+:root[data-accent="amber"] {
+  --accent-50: #fffbeb;
+  --accent-100: #fef3c7;
+  --accent-200: #fde68a;
+  --accent-300: #fcd34d;
+  --accent-400: #fbbf24;
+  --accent-500: #f59e0b;
+  --accent-600: #d97706;
+  --accent-700: #b45309;
+  --accent-800: #92400e;
+  --accent-900: #78350f;
+  --accent-950: #451a03;
+}
+
+/* Dark Mode Theme Variables */
+.dark {
+  color-scheme: dark;
+  --slate-50: #090d16;
+  --slate-100: #111827;
+  --slate-200: #1f2937;
+  --slate-300: #374151;
+  --slate-400: #9ca3af;
+  --slate-500: #6b7280;
+  --slate-600: #9ca3af;
+  --slate-700: #d1d5db;
+  --slate-800: #e5e7eb;
+  --slate-900: #f3f4f6;
+  --slate-950: #f9fafb;
+}
+
 * {
     font-family: "Outfit", "Inter";
 }
@@ -125,4 +301,84 @@
 /* Selection */
 ::selection {
     @apply bg-indigo-100 text-indigo-900;
+}
+
+/* Custom dark mode class-based overrides */
+.dark .bg-white {
+  background-color: var(--slate-100) !important;
+}
+
+.dark .text-slate-900,
+.dark .text-slate-800,
+.dark .text-slate-700,
+.dark .text-zinc-800 {
+  color: var(--slate-900) !important;
+}
+
+.dark .text-slate-600,
+.dark .text-slate-500 {
+  color: var(--slate-500) !important;
+}
+
+.dark .text-slate-400 {
+  color: var(--slate-400) !important;
+}
+
+.dark .border-slate-200,
+.dark .border-slate-100 {
+  border-color: var(--slate-200) !important;
+}
+
+.dark .bg-slate-50 {
+  background-color: var(--slate-50) !important;
+}
+
+.dark .bg-slate-100 {
+  background-color: var(--slate-200) !important;
+}
+
+.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--slate-200) !important;
+}
+
+.dark ::placeholder {
+  color: var(--slate-500) !important;
+}
+
+.dark .shadow-sm,
+.dark .shadow-md,
+.dark .shadow-lg {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Fix table headers and hover effects in dark mode */
+.dark .table-modern thead th {
+  background-color: var(--slate-200) !important;
+}
+.dark .table-modern tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Sidebar overrides for dark mode to keep it dark and premium */
+.dark aside {
+  background-color: #05080e !important; /* Keep dark sidebar */
+  border-right: 1px solid #111827 !important;
+}
+.dark aside .bg-slate-950\/50 {
+  background-color: rgba(2, 3, 5, 0.8) !important;
+}
+.dark aside .border-slate-800 {
+  border-color: #111827 !important;
+}
+.dark aside .text-slate-400 {
+  color: #6b7280 !important;
+}
+.dark aside .hover\:bg-slate-800:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+}
+
+/* Logo Glow in Dark Mode */
+.dark .bg-gradient-to-br.from-indigo-500.to-violet-600 {
+  box-shadow: 0 0 16px var(--accent-500) !important;
 }
