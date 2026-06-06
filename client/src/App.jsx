@@ -10,6 +10,7 @@ import Payslips from './pages/Payslips';
 import Settings from './pages/Settings';
 import PrintPayslip from './pages/PrintPayslip';
 import LoginForm from './components/LoginForm';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
   return (
@@ -21,7 +22,7 @@ const App = () => {
         <Route path='/login/admin' element={<LoginForm role='admin' title='Admin Portal' subtitle='Sign in to manage the organization' />} />
         <Route path='/login/employee' element={<LoginForm role='employee' title='Employee Portal' subtitle='Sign in to access your account' />} />
 
-        <Route element={<Layout />}>
+        <Route element={<ProtectedRoute><Layout /></ProtectedRoute>}>
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/employees' element={<Employees />} />
           <Route path='/attendance' element={<Attendance />} />
@@ -29,7 +30,7 @@ const App = () => {
           <Route path='/payslips' element={<Payslips />} />
           <Route path='/settings' element={<Settings />} />
         </Route>
-        <Route path='/print/payslips/:id' element={<PrintPayslip />} />
+        <Route path='/print/payslips/:id' element={<ProtectedRoute><PrintPayslip /></ProtectedRoute>} />
         <Route path='*' element={<Navigate to="/dashboard" replace />} />
       </Routes>
     </>
