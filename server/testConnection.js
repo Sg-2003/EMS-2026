@@ -2,6 +2,10 @@ import mongoose from 'mongoose';
 import readline from 'readline';
 import User from './models/User.js';
 import bcrypt from 'bcrypt';
+import dns from 'dns';
+
+dns.setServers(['8.8.8.8', '8.8.4.4']);
+
 
 const rl = readline.createInterface({
   input: process.stdin,
