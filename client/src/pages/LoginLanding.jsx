@@ -53,7 +53,7 @@ const LoginLanding = () => {
                     </div>
                     {/* footer  */}
                     <div className="mt-12 text-center md:text-left text-sm text-slate-400">
-                        <p>© 2026 GreatStack. All rights reserved.</p>
+                        <p>© 2026 QuickEMS. All rights reserved.</p>
                     </div>
                 </div>
             </div>
